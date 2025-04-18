@@ -237,6 +237,16 @@ typedef enum _meshtastic_HardwareModel {
     meshtastic_HardwareModel_T_ETH_ELITE = 91,
     /* Heltec HRI-3621 industrial probe */
     meshtastic_HardwareModel_HELTEC_SENSOR_HUB = 92,
+    /* Reserved Fried Chicken ID for future use */
+    meshtastic_HardwareModel_RESERVED_FRIED_CHICKEN = 93,
+    /* Heltec Magnetic Power Bank with Meshtastic compatible */
+    meshtastic_HardwareModel_HELTEC_MESH_POCKET = 94,
+    /* Seeed Solar Node */
+    meshtastic_HardwareModel_SEEED_SOLAR_NODE = 95,
+    /* NomadStar Meteor Pro https://nomadstar.ch/ */
+    meshtastic_HardwareModel_NOMADSTAR_METEOR_PRO = 96,
+    /* Elecrow CrowPanel Advance models, ESP32-S3 and TFT with SX1262 radio plugin */
+    meshtastic_HardwareModel_CROWPANEL = 97,
     /* ------------------------------------------------------------------------------------------------------------------------------------------
  Reserved ID For developing private Ports. These will show up in live traffic sparsely, so we can use a high number. Keep it within 8 bits.
  ------------------------------------------------------------------------------------------------------------------------------------------ */
@@ -326,7 +336,11 @@ typedef enum _meshtastic_ExcludedModules {
     /* Detection Sensor module */
     meshtastic_ExcludedModules_DETECTIONSENSOR_CONFIG = 2048,
     /* Paxcounter module */
-    meshtastic_ExcludedModules_PAXCOUNTER_CONFIG = 4096
+    meshtastic_ExcludedModules_PAXCOUNTER_CONFIG = 4096,
+    /* Bluetooth config (not technically a module, but used to indicate bluetooth capabilities) */
+    meshtastic_ExcludedModules_BLUETOOTH_CONFIG = 8192,
+    /* Network config (not technically a module, but used to indicate network capabilities) */
+    meshtastic_ExcludedModules_NETWORK_CONFIG = 16384
 } meshtastic_ExcludedModules;
 
 /* How the location was acquired: manual, onboard GPS, external (EUD) GPS */
@@ -1122,8 +1136,8 @@ extern "C" {
 #define _meshtastic_CriticalErrorCode_ARRAYSIZE ((meshtastic_CriticalErrorCode)(meshtastic_CriticalErrorCode_FLASH_CORRUPTION_UNRECOVERABLE+1))
 
 #define _meshtastic_ExcludedModules_MIN meshtastic_ExcludedModules_EXCLUDED_NONE
-#define _meshtastic_ExcludedModules_MAX meshtastic_ExcludedModules_PAXCOUNTER_CONFIG
-#define _meshtastic_ExcludedModules_ARRAYSIZE ((meshtastic_ExcludedModules)(meshtastic_ExcludedModules_PAXCOUNTER_CONFIG+1))
+#define _meshtastic_ExcludedModules_MAX meshtastic_ExcludedModules_NETWORK_CONFIG
+#define _meshtastic_ExcludedModules_ARRAYSIZE ((meshtastic_ExcludedModules)(meshtastic_ExcludedModules_NETWORK_CONFIG+1))
 
 #define _meshtastic_Position_LocSource_MIN meshtastic_Position_LocSource_LOC_UNSET
 #define _meshtastic_Position_LocSource_MAX meshtastic_Position_LocSource_LOC_EXTERNAL
